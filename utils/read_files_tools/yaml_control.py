@@ -84,3 +84,7 @@ class GetCaseData(GetYamlData):
         # 正则处理yaml文件中的数据
         re_data = regular(str(_yaml_data))
         return ast.literal_eval(re_data)
+
+if __name__ == '__main__':
+    result = GetYamlData(r'../../common/config.yaml').get_yaml_data()
+    print(result['email']['send_user'])

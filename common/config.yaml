@@ -50,12 +50,12 @@ wechat:
 ### 邮箱必填，需要全部都配置好，程序运行失败时，会发送邮件通知!!!!
 ### 重要的事情说三遍
 email:
-  send_user:
+  send_user: 43730829@qq.com
   email_host: smtp.qq.com
   # 自己到QQ邮箱中配置stamp_key
-  stamp_key:
+  stamp_key: urisgnhscxndbhch
   # 收件人改成自己的邮箱
-  send_list:
+  send_list: 43730829@qq.com
 
 # 飞书通知
 lark:

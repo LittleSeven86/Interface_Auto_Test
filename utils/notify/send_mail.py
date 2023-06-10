@@ -28,7 +28,7 @@ class SendEmail:
         @param content: 发送内容
         @return:
         """
-        user = "余少琪" + "<" + config.email.send_user + ">"
+        user = "littleseven" + "<" + config.email.send_user + ">"
         message = MIMEText(content, _subtype='plain', _charset='utf-8')
         message['Subject'] = sub
         message['From'] = user
@@ -81,4 +81,5 @@ class SendEmail:
 
 
 if __name__ == '__main__':
-    SendEmail(AllureFileClean().get_case_count()).send_main()
+    # SendEmail(AllureFileClean().get_case_count()).send_main()
+    SendEmail.send_mail(user_list=['43730829@qq.com'],sub="test",content='test')

@@ -51,7 +51,8 @@ class AllureFileClean:
     def get_case_count(cls) -> "TestMetrics":
         """ 统计用例数量 """
         try:
-            file_name = ensure_path_sep("\\report\\html\\widgets\\summary.json")
+            # file_name = ensure_path_sep("\\report\\html\\widgets\\summary.json")
+            file_name = 'summary.json'
             with open(file_name, 'r', encoding='utf-8') as file:
                 data = json.load(file)
             _case_count = data['statistic']
@@ -80,4 +81,6 @@ class AllureFileClean:
 
 
 if __name__ == '__main__':
-    AllureFileClean().get_case_count()
+    # AllureFileClean().get_case_count()
+    res = AllureFileClean.get_case_count()
+    print(res)

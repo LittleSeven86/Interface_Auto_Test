@@ -49,10 +49,12 @@ def run():
                    --maxfail: 设置最大失败次数，当超出这个阈值时，则不会在执行测试用例
                     "--reruns=3", "--reruns-delay=2"
                    """
+        # data_path = '/Users/z.m/pythonProject/Interface_Auto_Test/report/tmp'
+        # report_data = '/Users/z.m/pythonProject/Interface_Auto_Test/report/html'
+        os.system(rf"allure generate ./report/tmp -o ./report/html --clean")
 
-        os.system(r"allure generate ./report/tmp -o ./report/html --clean")
-
-        allure_data = AllureFileClean().get_case_count()
+        allure_data = AllureFileClean.get_case_count()
+        # 2023-07-04 对allure生成的测试数据进行清洗
         notification_mapping = {
             NotificationType.DING_TALK.value: DingTalkSendMsg(allure_data).send_ding_notification,
             NotificationType.WECHAT.value: WeChatSend(allure_data).send_wechat_notification,
@@ -60,6 +62,7 @@ def run():
             NotificationType.FEI_SHU.value: FeiShuTalkChatBot(allure_data).post
         }
 
+        # 2023-07-04 默认的通知参数为0，可以在config文件中对通知类型进行设置
         if config.notification_type != NotificationType.DEFAULT.value:
             notification_mapping.get(config.notification_type)()
 
@@ -67,7 +70,7 @@ def run():
             ErrorCaseExcel().write_case()
 
         # 程序运行之后，自动启动报告，如果不想启动报告，可注释这段代码
-        os.system(f"allure serve ./report/tmp -h 127.0.0.1 -p 9999")
+        # os.system(f"allure serve ./report/tmp -h 127.0.0.1 -p 9999")
 
     except Exception:
         # 如有异常，相关异常发送邮件

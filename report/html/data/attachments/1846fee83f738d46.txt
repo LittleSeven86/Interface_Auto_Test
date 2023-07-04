@@ -1,0 +1,11 @@
+INFO     /Users/z.m/pythonProject/Interface_Auto_Test/logs/info-2023-07-04.log:log_decorator.py:42 
+======================================================
+用例标题: 输入手机号码小于11位
+请求路径: https://www.wanandroid.com/user/login
+请求方式: POST
+请求头:   {'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=ca58ddecc9cc44a5b60268f14e9e14cb', 'Content-Length': '231'}
+请求内容: {'username': '1880000000', 'password': '12345'}
+接口响应内容: {"data":null,"errorCode":-1,"errorMsg":"账号密码不匹配！"}
+接口响应时长: 238 ms
+Http状态码: 200
+=====================================================

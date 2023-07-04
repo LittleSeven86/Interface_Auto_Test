@@ -7,6 +7,7 @@
 """
 
 import json
+import os
 from typing import List, Text
 from common.setting import ensure_path_sep
 from utils.read_files_tools.get_all_files_path import get_all_files
@@ -51,8 +52,7 @@ class AllureFileClean:
     def get_case_count(cls) -> "TestMetrics":
         """ 统计用例数量 """
         try:
-            # file_name = ensure_path_sep("\\report\\html\\widgets\\summary.json")
-            file_name = 'summary.json'
+            file_name = ensure_path_sep("\\report\\html\\widgets\\summary.json")
             with open(file_name, 'r', encoding='utf-8') as file:
                 data = json.load(file)
             _case_count = data['statistic']

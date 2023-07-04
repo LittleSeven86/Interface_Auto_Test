@@ -81,5 +81,5 @@ class SendEmail:
 
 
 if __name__ == '__main__':
-    # SendEmail(AllureFileClean().get_case_count()).send_main()
-    SendEmail.send_mail(user_list=['43730829@qq.com'],sub="test",content='test')
+    SendEmail(AllureFileClean().get_case_count()).send_main()
+    # SendEmail.send_mail(user_list=['43730829@qq.com'],sub="test",content='test')

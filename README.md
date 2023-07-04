@@ -3,14 +3,9 @@
 
 本框架主要是基于 Python + pytest + allure + log + yaml + mysql + redis + 钉钉通知 + Jenkins 实现的接口自动化框架。
 
-* git地址: [https://gitee.com/yu_xiao_qi/pytest-auto-api2](https://gitee.com/yu_xiao_qi/pytest-auto-api2)
-* 项目参与者: 余少琪
-* 技术支持邮箱: 1603453211@qq.com
-* 个人博客地址:  [https://blog.csdn.net/weixin_43865008](https://blog.csdn.net/weixin_43865008)
+* git地址:  https://github.com/LittleSeven86/Interface_Auto_Test.git
 
 如果对您有帮助，请点亮 小星星 以表支持，谢谢
-
-![img.png](Files/image/starts.png)
 
 ## 前言
 
@@ -910,10 +905,4 @@ _框架内容会随着大家的反馈，持续更新！邮箱地址：1602343211
 * V2.0.0(2022-04-07)
   [重构] 新增多业务逻辑依赖处理，统一改成yaml文件中维护用例，无需编写代码，基于V1.0版本进行重构
 * [查看更多记录点此查看](https://gitee.com/yu_xiao_qi/pytest-auto-api2/wikis/Home)
-
-## 赞赏
-
-如果这个库有帮助到你并且你很想支持库的后续开发和维护，那么你可以扫描下方二维码随意打赏我，我将不胜感激
-
-![img_1.png](Files/image/img_1.png)  ![img_1.png](Files/image/weixin_pay.png)
 

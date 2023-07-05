@@ -19,7 +19,10 @@ class AllureFileClean:
 
     @classmethod
     def get_testcases(cls) -> List:
-        """ 获取所有 allure 报告中执行用例的情况"""
+        '''
+        获取所有 allure 报告中执行用例的情况
+        :return: 返回当前路径下所有json文件的数据列表
+        '''
         # 将所有数据都收集到files中
         files = []
         for i in get_all_files(ensure_path_sep("\\report\\html\\data\\test-cases")):
@@ -50,7 +53,10 @@ class AllureFileClean:
 
     @classmethod
     def get_case_count(cls) -> "TestMetrics":
-        """ 统计用例数量 """
+        '''
+        统计用例数量，读取summary.json文件中的统计信息，提取出有关测试用例数量的数据，并计算测试用例的成功率
+        :return: TestMetrics对象封装 统计信息
+        '''
         try:
             file_name = ensure_path_sep("\\report\\html\\widgets\\summary.json")
             with open(file_name, 'r', encoding='utf-8') as file:
@@ -61,7 +67,7 @@ class AllureFileClean:
             run_case_data = {k: v for k, v in data['statistic'].items() if k in keep_keys}
             # 判断运行用例总数大于0
             if _case_count["total"] > 0:
-                # 计算用例成功率
+                # 计算用例成功率,通过round()进行四舍五入，保留两位小数
                 run_case_data["pass_rate"] = round(
                     (_case_count["passed"] + _case_count["skipped"]) / _case_count["total"] * 100, 2
                 )
@@ -75,12 +81,12 @@ class AllureFileClean:
             raise FileNotFoundError(
                 "程序中检查到您未生成allure报告，"
                 "通常可能导致的原因是allure环境未配置正确，"
-                "详情可查看如下博客内容："
-                "https://blog.csdn.net/weixin_43865008/article/details/124332793"
             ) from exc
 
 
 if __name__ == '__main__':
     # AllureFileClean().get_case_count()
+    # print(AllureFileClean.get_testcases())
     res = AllureFileClean.get_case_count()
     print(res)
+

@@ -16,7 +16,9 @@ class NotificationType(Enum):
 
 @dataclass
 class TestMetrics:
-    """ 用例执行数据 """
+    """ 用例执行数据
+    使用这个TestMetrics类，可以创建一个包含测试用例执行数据的对象，方便地访问和操作测试用例的各项指标，例如通过的用例数量、失败的用例数量、通过率等
+    """
     passed: int
     failed: int
     broken: int

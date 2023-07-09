@@ -26,6 +26,7 @@ class AllureFileClean:
         # 将所有数据都收集到files中
         files = []
         for i in get_all_files(ensure_path_sep("\\report\\html\\data\\test-cases")):
+            print(os.getcwd())
             with open(i, 'r', encoding='utf-8') as file:
                 date = json.load(file)
                 files.append(date)
@@ -58,6 +59,7 @@ class AllureFileClean:
         :return: TestMetrics对象封装 统计信息
         '''
         try:
+            print(os.getcwd())
             file_name = ensure_path_sep("\\report\\html\\widgets\\summary.json")
             with open(file_name, 'r', encoding='utf-8') as file:
                 data = json.load(file)

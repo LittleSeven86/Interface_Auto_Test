@@ -173,10 +173,15 @@ def regular(target):
     :return:
     """
     try:
+        # 定义匹配规则
         regular_pattern = r'\${{(.*?)}}'
+        # while循环一直执行，直到target字符串中没有需要替换的占位符。使用re.findall函数查找target字符串中所有与regular_pattern匹配的部分
         while re.findall(regular_pattern, target):
+            # 提取第一个匹配项中的键（key）
             key = re.search(regular_pattern, target).group(1)
+            # 定义参数类型
             value_types = ['int:', 'bool:', 'list:', 'dict:', 'tuple:', 'float:']
+            # 如果检测到值类型，提取函数名和值名。如果值名为空，将function_name作为参数去Context类中对应的函数。获取到的值赋给value_data变量。
             if any(i in key for i in value_types) is True:
                 func_name = key.split(":")[1].split("(")[0]
                 value_name = key.split(":")[1].split("(")[1][:-1]
@@ -186,6 +191,7 @@ def regular(target):
                     value_data = getattr(Context(), func_name)(*value_name.split(","))
                 regular_int_pattern = r'\'\${{(.*?)}}\''
                 target = re.sub(regular_int_pattern, str(value_data), target, 1)
+            # 如果没有检测到值类型（即键中不包含任何值类型），则从键中提取函数名和值名，方式与之前类似。获取到的值赋给value_data变量。
             else:
                 func_name = key.split("(")[0]
                 value_name = key.split("(")[1][:-1]
@@ -204,3 +210,5 @@ def regular(target):
 if __name__ == '__main__':
     a = "${{host()}} aaa"
     b = regular(a)
+    print(a)
+    print(b)

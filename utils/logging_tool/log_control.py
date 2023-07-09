@@ -29,7 +29,7 @@ class LogHandler:
             filename: Text,
             level: Text = "info",
             when: Text = "D",
-            fmt: Text = "%(levelname)-8s%(asctime)s%(name)s:%(filename)s:%(lineno)d %(message)s"
+            fmt: Text = "%(levelname)-8s%(asctime)s%(name)s:%(filename)s:%(lineno)d 异常信息：%(message)s"
     ):
         self.logger = logging.getLogger(filename)
 
@@ -69,7 +69,7 @@ class LogHandler:
         }
 
         formatter = colorlog.ColoredFormatter(
-            '%(log_color)s[%(asctime)s] [%(name)s] [%(levelname)s]: %(message)s',
+            f'%(log_color)s[%(asctime)s] [%(name)s] [%(levelname)s]: 异常信息：%(message)s',
             log_colors=log_colors_config
         )
         return formatter
@@ -82,3 +82,6 @@ WARNING = LogHandler(ensure_path_sep(f'\\logs\\warning-{now_time_day}.log'))
 
 if __name__ == '__main__':
     ERROR.logger.error("测试")
+    INFO.logger.info("测试")
+    WARNING.logger.warning("测试")
+    # DEBUG.logger.debug('测试')

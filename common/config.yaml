@@ -1,8 +1,8 @@
-project_name: 小柒哥哥的测试项目
+project_name: 小柒的测试项目
 
 env: 测试环境
 # 测试人员名称，作用于自动生成代码的作者，以及发送企业微信、钉钉通知的测试负责人
-tester_name: 七月
+tester_name: 小柒测试笔记
 
 # 域名1
 host: https://www.wanandroid.com
@@ -57,8 +57,8 @@ lark:
 ding_talk:
 #  webhook: https://oapi.dingtalk.com/robot/send?access_token=a59902a7e811f93ffe301d8326b07a2acc8aa2a864e7d61ee9fc076481ced2a6
 #  secret: SECdea6489dfcc3b9259da943c5ae38d3530696f2fa83ac72a9ee716e9511675b9b
-  webhook:
-  secret:
+  webhook: https://oapi.dingtalk.com/robot/send?access_token=6b147ac370733c7417a5f9c32ea6eb7c0f8e7297a309dc4ebeef26a09bab707e
+  secret: SEC69f165aaf17ea11aa3dcdd8faf1cf370b324c474d4c009e30fd6c791b9f0032d
 
 # 企业通知的相关配置
 wechat:
